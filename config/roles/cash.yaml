@@ -1,0 +1,7 @@
+parameters:
+    cash_roles:
+        # Cash roles
+        "ROLE_CASH_VIEW": "roles.role_cash_view"
+        "ROLE_CASH_CREATE": "roles.role_cash_create"
+        "ROLE_CASH_EDIT": "roles.role_cash_edit"
+        "ROLE_CASH_DELETE": "roles.role_cash_delete"

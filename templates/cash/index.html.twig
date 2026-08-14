@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% import 'core/default_templates/form_search.html.twig' as form_search %}
+{% import 'core/default_templates/data_table_macro.html.twig' as data_table %}
+
+{% block body %}
+    {{ form_search.form_search(form, ["transactionDateFrom", "transactionDateTo", "amountFrom", "amountTo", "transactionType", "createdBy"]) }}
+
+    {{ data_table.table(rows, {
+        "newLink": data_table.new_btn('cash_create'),
+        "cols" : {
+            "tableAction": {
+                "label": "core.module.actionTitle",
+                "edit": path('cash_edit', {"id": -1}),
+            },
+            "transactionDate": {
+                "label": "cash.transaction_date",
+                "type": "date",
+            },
+            "amount": {
+                "label": "cash.amount",
+                "type": "currency",
+            },
+            "transactionType.getLabelInTable": {
+                "label": "cash.transaction_type",
+                "trans": true,
+            },
+            "createdBy.fullName": {
+                "label": "cash.created_by",
+            },
+            "createdAt": {
+                "label": "cash.created_at",
+                "type": "datetime",
+            },
+        }
+    }) }}
+{% endblock %} 
